@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 using ContosoCrafts.WebSite.Models;
 
 namespace ContosoCrafts.WebSite.Services
@@ -19,14 +20,19 @@ namespace ContosoCrafts.WebSite.Services
 
         public IEnumerable<Product> GetProducts()
         {
-            using(StreamReader jsonFileReader = File.OpenText(JsonFileName))
+            using StreamReader jsonFileReader = File.OpenText(JsonFileName);
+            IEnumerable<Product> test = JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
+
+            if(test != null)
             {
-                return JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(),
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
+                return test;
             }
+            else
+            { return Enumerable.Empty<Product>(); }
         }
     }
 }

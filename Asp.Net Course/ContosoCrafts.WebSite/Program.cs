@@ -1,7 +1,10 @@
+using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
+using System.Text.Json;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
+
 
 builder.Services.AddCors(options =>
 {
@@ -37,5 +40,11 @@ app.UseCors(MyAllowSpecificOrigins);
 app.UseAuthorization();
 
 app.MapRazorPages();
+app.MapGet("/products", (context) =>
+{
+    IEnumerable<Product> products = app.Services.GetService<JsonFileProductService>().GetProducts();
+    string json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+    return context.Response.WriteAsync(json);
+});
 
 app.Run();

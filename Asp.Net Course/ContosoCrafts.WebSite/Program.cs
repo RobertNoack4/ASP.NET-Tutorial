@@ -1,5 +1,7 @@
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
+using System.Reflection;
+using System.Security.Cryptography.Xml;
 using System.Text.Json;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -20,6 +22,7 @@ builder.Services.AddCors(options =>
 builder.Services.AddRazorPages();
 builder.Services.AddMvc().AddRazorRuntimeCompilation();
 builder.Services.AddTransient<JsonFileProductService>();
+builder.Services.AddControllers();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -39,12 +42,17 @@ app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=products}");
+
 app.MapRazorPages();
-app.MapGet("/products", (context) =>
-{
-    IEnumerable<Product> products = app.Services.GetService<JsonFileProductService>().GetProducts();
-    string json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
-    return context.Response.WriteAsync(json);
-});
+app.MapControllers();
+//app.MapGet("/products", (context) =>
+//{
+//    IEnumerable<Product> products = app.Services.GetService<JsonFileProductService>().GetProducts();
+//    string json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
+//    return context.Response.WriteAsync(json);
+//});
 
 app.Run();

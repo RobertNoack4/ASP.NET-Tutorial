@@ -20,19 +20,44 @@ namespace ContosoCrafts.WebSite.Services
 
         public IEnumerable<Product> GetProducts()
         {
-            using StreamReader jsonFileReader = File.OpenText(JsonFileName);
-            IEnumerable<Product> test = JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(),
-                new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                });
-
-            if(test != null)
+            using (StreamReader jsonFileReader = File.OpenText(JsonFileName))
             {
-                return test;
+                return JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(),
+                    new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+            }
+        }
+
+        public void AddRating(string productId, int rating)
+        {
+            var products = GetProducts();
+
+            var query = products.First(x => x.Id == productId);
+
+            if(query.Ratings == null)
+            {
+                query.Ratings = new int[] { rating };
             }
             else
-            { return Enumerable.Empty<Product>(); }
+            {
+                var ratingList = query.Ratings.ToList();
+                ratingList.Add(rating); ;
+                query.Ratings = ratingList.ToArray();
+            }
+
+            using(var outPutStream = File.Open(JsonFileName, FileMode.Open))
+            {
+                JsonSerializer.Serialize<IEnumerable<Product>>(
+                    new Utf8JsonWriter(outPutStream, new JsonWriterOptions
+                    {
+                        SkipValidation = true,
+                        Indented = true
+                    }),
+                    products
+                );
+            }
         }
     }
 }

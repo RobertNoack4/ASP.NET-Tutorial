@@ -1,6 +1,5 @@
 ﻿using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ContosoCrafts.WebSite.Pages
@@ -12,7 +11,7 @@ namespace ContosoCrafts.WebSite.Pages
         public IEnumerable<Product> Products { get; private set; }
 
         public IndexModel(
-            ILogger<IndexModel> logger, 
+            ILogger<IndexModel> logger,
             JsonFileProductService productService)
         {
             _logger = logger;

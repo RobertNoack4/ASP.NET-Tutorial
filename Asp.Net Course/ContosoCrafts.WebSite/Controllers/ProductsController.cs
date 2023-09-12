@@ -24,7 +24,7 @@ namespace ContosoCrafts.WebSite.Controllers
         [Route("Rate")]
         [HttpGet]
         public ActionResult Get(
-            [FromQuery] string productId, 
+            [FromQuery] string productId,
             [FromQuery] int rating)
         {
             ProductService.AddRating(productId, rating);

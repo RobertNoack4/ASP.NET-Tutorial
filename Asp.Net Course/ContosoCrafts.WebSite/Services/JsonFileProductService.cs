@@ -1,17 +1,16 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using ContosoCrafts.WebSite.Models;
 using System.Text.Json;
-using ContosoCrafts.WebSite.Models;
 
 namespace ContosoCrafts.WebSite.Services
 {
     public class JsonFileProductService
     {
-        public JsonFileProductService(IWebHostEnvironment webHostEnvironment) 
+        public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }
 
-        public IWebHostEnvironment WebHostEnvironment { get;}
+        public IWebHostEnvironment WebHostEnvironment { get; }
 
         private string JsonFileName
         {
@@ -36,7 +35,7 @@ namespace ContosoCrafts.WebSite.Services
 
             var query = products.First(x => x.Id == productId);
 
-            if(query.Ratings == null)
+            if (query.Ratings == null)
             {
                 query.Ratings = new int[] { rating };
             }
@@ -47,7 +46,7 @@ namespace ContosoCrafts.WebSite.Services
                 query.Ratings = ratingList.ToArray();
             }
 
-            using(var outPutStream = File.Open(JsonFileName, FileMode.Open))
+            using (var outPutStream = File.Open(JsonFileName, FileMode.Open))
             {
                 JsonSerializer.Serialize<IEnumerable<Product>>(
                     new Utf8JsonWriter(outPutStream, new JsonWriterOptions

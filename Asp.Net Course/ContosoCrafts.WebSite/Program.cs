@@ -1,12 +1,7 @@
-using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
-using System.Reflection;
-using System.Security.Cryptography.Xml;
-using System.Text.Json;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
-
 
 builder.Services.AddCors(options =>
 {

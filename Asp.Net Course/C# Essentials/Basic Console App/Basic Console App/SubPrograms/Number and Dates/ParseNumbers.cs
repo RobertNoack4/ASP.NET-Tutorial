@@ -1,15 +1,9 @@
-﻿using Basic_Console_App.SubPrograms.Strings;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Number_and_Dates
+﻿namespace Basic_Console_App.SubPrograms.Number_and_Dates
 {
     internal class ParseNumbers : iSubProgram
     {
         private string programName;
+
         string iSubProgram.ProgramName
         {
             get
@@ -27,13 +21,11 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
             return (ParseNumbers)new ParseNumbers().Initialize();
         }
 
-
         public iSubProgram Initialize()
         {
             ParseNumbers parseNumbers = new ParseNumbers();
             parseNumbers.programName = "Parse Numbers";
             return parseNumbers;
-
         }
 
         public void Start()

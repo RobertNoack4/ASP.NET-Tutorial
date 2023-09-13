@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Strings
+﻿namespace Basic_Console_App.SubPrograms.Strings
 {
     internal class Searching : iSubProgram
     {
         private string programName;
+
         string iSubProgram.ProgramName
         {
             get
@@ -26,13 +21,11 @@ namespace Basic_Console_App.SubPrograms.Strings
             return (Searching)new Searching().Initialize();
         }
 
-
         public iSubProgram Initialize()
         {
             Searching searching = new Searching();
             searching.programName = "Searching";
             return searching;
-
         }
 
         public void Start()
@@ -46,7 +39,7 @@ namespace Basic_Console_App.SubPrograms.Strings
             Console.WriteLine($"{teststr.Contains("fox")}");
             Console.WriteLine($"{teststr.Contains("fox", StringComparison.CurrentCultureIgnoreCase)}");
 
-            // StartsWith and EndsWith determine if a string starts 
+            // StartsWith and EndsWith determine if a string starts
             // or ends with a given test string
             Console.WriteLine($"{teststr.StartsWith("the")}");
             Console.WriteLine($"{teststr.StartsWith("the", StringComparison.CurrentCultureIgnoreCase)}");
@@ -65,7 +58,6 @@ namespace Basic_Console_App.SubPrograms.Strings
             Console.WriteLine($"{String.IsNullOrEmpty(str1)}");
             Console.WriteLine($"{String.IsNullOrEmpty(str3)}");
             Console.WriteLine($"{String.IsNullOrWhiteSpace(str2)}");
-
         }
     }
 }

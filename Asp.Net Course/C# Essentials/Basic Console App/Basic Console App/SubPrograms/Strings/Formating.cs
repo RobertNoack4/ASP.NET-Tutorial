@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Strings
+﻿namespace Basic_Console_App.SubPrograms.Strings
 {
     internal class Formating : iSubProgram
     {
         private string programName;
+
         string iSubProgram.ProgramName
         {
             get
@@ -26,13 +21,11 @@ namespace Basic_Console_App.SubPrograms.Strings
             return (Formating)new Formating().Initialize();
         }
 
-
         public iSubProgram Initialize()
         {
             Formating formating = new Formating();
             formating.programName = "Formating";
             return formating;
-
         }
 
         public void Start()
@@ -50,7 +43,6 @@ namespace Basic_Console_App.SubPrograms.Strings
             // Spacing and Alignment: Interpolation
             Console.WriteLine("{0,-15} {1,10}", "Float Val", "Int Val");
             Console.WriteLine($"{f1,-15} {i1,10}");
-
         }
     }
 }

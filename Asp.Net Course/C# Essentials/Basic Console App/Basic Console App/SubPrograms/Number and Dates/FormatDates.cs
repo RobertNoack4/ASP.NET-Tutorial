@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace Basic_Console_App.SubPrograms.Number_and_Dates
 {
     internal class FormatDates : iSubProgram
     {
         private string programName;
+
         string iSubProgram.ProgramName
         {
             get
@@ -27,13 +23,11 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
             return (FormatDates)new FormatDates().Initialize();
         }
 
-
         public iSubProgram Initialize()
         {
             FormatDates formatDates = new FormatDates();
             formatDates.programName = "Format Dates";
             return formatDates;
-
         }
 
         public void Start()

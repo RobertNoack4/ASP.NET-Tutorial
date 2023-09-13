@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Strings
+﻿namespace Basic_Console_App.SubPrograms.Strings
 {
     internal class Manipulation : iSubProgram
     {
         private string programName;
+
         string iSubProgram.ProgramName
         {
             get
@@ -26,13 +21,11 @@ namespace Basic_Console_App.SubPrograms.Strings
             return (Manipulation)new Manipulation().Initialize();
         }
 
-
         public iSubProgram Initialize()
         {
             Manipulation manipulation = new Manipulation();
             manipulation.programName = "Manipulation";
             return manipulation;
-
         }
 
         public void Start()
@@ -42,7 +35,7 @@ namespace Basic_Console_App.SubPrograms.Strings
             string str3 = "THIS is a STRING";
             string[] strs = { "one", "two", "three", "four" };
 
-            // Length of a string 
+            // Length of a string
             Console.WriteLine(str1.Length);
 
             // Access individual characters
@@ -59,7 +52,7 @@ namespace Basic_Console_App.SubPrograms.Strings
                 }
             }
 
-            // String Concatenation         
+            // String Concatenation
             string outstr;
             outstr = String.Concat(strs);
             Console.WriteLine(outstr);
@@ -86,7 +79,6 @@ namespace Basic_Console_App.SubPrograms.Strings
             // Replacing content
             outstr = str1.Replace("fox", "cat");
             Console.WriteLine($"{outstr}");
-
         }
     }
 }

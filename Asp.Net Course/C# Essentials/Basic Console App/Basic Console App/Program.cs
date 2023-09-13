@@ -21,7 +21,7 @@ public static class MainProgram
                         HelloWorld.ReadProgram(),
                         GarbageCollect.ReadProgram(),
                         StringOperationen.ReadProgram(),
-                        NumberAndDatesOperationen.ReadProgram(),
+                        NumbersAndDatesOperationen.ReadProgram(),
 
                         ExitProgram.ReadProgram(),
                     };

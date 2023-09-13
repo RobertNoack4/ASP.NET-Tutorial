@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Basic_Console_App.SubPrograms.Number_and_Dates
 {
-    internal class NumberAndDatesOperationen : iSubProgram
+    internal class NumbersAndDatesOperationen : iSubProgram
     {
         private string programName;
         string iSubProgram.ProgramName
@@ -22,15 +22,15 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
             }
         }
 
-        public static NumberAndDatesOperationen ReadProgram()
+        public static NumbersAndDatesOperationen ReadProgram()
         {
-            return (NumberAndDatesOperationen)new NumberAndDatesOperationen().Initialize();
+            return (NumbersAndDatesOperationen)new NumbersAndDatesOperationen().Initialize();
         }
 
 
         public iSubProgram Initialize()
         {
-            NumberAndDatesOperationen numberAndDatesOperationen = new NumberAndDatesOperationen();
+            NumbersAndDatesOperationen numberAndDatesOperationen = new NumbersAndDatesOperationen();
             numberAndDatesOperationen.programName = "Number And Dates";
             return numberAndDatesOperationen;
 

@@ -44,7 +44,7 @@ public static class MainProgram
                 // Number and Dates Operationen
                 iSubPrograms = new List<iSubProgram>
                 {
-
+                    ParseNumbers.ReadProgram(),
                 };
                 break;
             default:

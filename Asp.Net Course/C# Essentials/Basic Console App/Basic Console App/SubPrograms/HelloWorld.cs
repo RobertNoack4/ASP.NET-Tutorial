@@ -1,4 +1,4 @@
-﻿namespace Basic_Console_App
+﻿namespace Basic_Console_App.SubPrograms
 {
     public class HelloWorld : iSubProgram
     {

@@ -1,16 +1,32 @@
 ﻿using Basic_Console_App.SubPrograms;
+using Basic_Console_App.SubPrograms.Strings;
 
-MainProgram.RunMainProgram();
+MainProgram.RunMainProgram(0);
 
 public static class MainProgram
 {
-    public static void RunMainProgram()
+    public static void RunMainProgram(int Mode)
     {
-        List<iSubProgram> iSubPrograms = new List<iSubProgram>
+        List<iSubProgram> iSubPrograms;
+
+        if(Mode == 0)
         {
-            HelloWorld.ReadProgram(),
-            GarbageCollect.ReadProgram(),
-        };
+            // Hauptmenü
+            iSubPrograms = new List<iSubProgram>
+            {
+                HelloWorld.ReadProgram(),
+                GarbageCollect.ReadProgram(),
+                StringOperationen.ReadProgram(),
+            };
+        }
+        else
+        {
+            // String Operationen
+            iSubPrograms = new List<iSubProgram>
+            {
+                Interpolation.ReadProgram(),
+            };
+        }
 
         for (int i = 0; i < iSubPrograms.Count; i++)
         {
@@ -31,12 +47,12 @@ public static class MainProgram
             }
             else
             {
-                RunMainProgram();
+                RunMainProgram(0);
             }
         }
         else
         {
-            RunMainProgram();
+            RunMainProgram(0);
         }
     }
 

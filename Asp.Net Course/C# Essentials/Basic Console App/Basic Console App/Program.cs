@@ -1,4 +1,5 @@
 ﻿using Basic_Console_App.SubPrograms;
+using Basic_Console_App.SubPrograms.Number_and_Dates;
 using Basic_Console_App.SubPrograms.Strings;
 
 MainProgram.RunMainProgram(0);
@@ -11,24 +12,49 @@ public static class MainProgram
 
         Console.Clear();
 
-        if(Mode == 0)
+        switch (Mode)
         {
             // Hauptmenü
-            iSubPrograms = new List<iSubProgram>
-            {
-                HelloWorld.ReadProgram(),
-                GarbageCollect.ReadProgram(),
-                StringOperationen.ReadProgram(),
-            };
+            case 0:
+                iSubPrograms = new List<iSubProgram>
+                    {
+                        HelloWorld.ReadProgram(),
+                        GarbageCollect.ReadProgram(),
+                        StringOperationen.ReadProgram(),
+                        NumberAndDatesOperationen.ReadProgram(),
+
+                        ExitProgram.ReadProgram(),
+                    };
+
+                break;
+            case 1:
+
+                // String Operationen
+                iSubPrograms = new List<iSubProgram>
+                    {
+                        Interpolation.ReadProgram(),
+                        Formating.ReadProgram(),
+                        Manipulation.ReadProgram(),
+                        Searching.ReadProgram(),
+                    };
+                break;
+
+            case 2:
+
+                // Number and Dates Operationen
+                iSubPrograms = new List<iSubProgram>
+                {
+
+                };
+                break;
+            default:
+                iSubPrograms = null;
+                break;
         }
-        else
+
+        if(iSubPrograms == null || iSubPrograms.Count == 0)
         {
-            // String Operationen
-            iSubPrograms = new List<iSubProgram>
-            {
-                Interpolation.ReadProgram(),
-                Formating.ReadProgram(),
-            };
+            MainProgram.RunMainProgram(0);
         }
 
         for (int i = 0; i < iSubPrograms.Count; i++)

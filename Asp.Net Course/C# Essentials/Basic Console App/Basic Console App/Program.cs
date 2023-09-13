@@ -20,11 +20,11 @@ public static class MainProgram
 
         bool error = MainProgram.ConvertToNumber(Input, out int InputNumber);
 
-        if(!error)
+        if (!error)
         {
             error = MainProgram.LadeSubProgram(InputNumber, iSubPrograms, out iSubProgram inputSubProgram);
 
-            if(!error)
+            if (!error)
             {
                 inputSubProgram.Start();
             }
@@ -40,8 +40,8 @@ public static class MainProgram
     }
 
     private static bool LadeSubProgram(
-        int InputNumber, 
-        List<iSubProgram> programList, 
+        int InputNumber,
+        List<iSubProgram> programList,
         out iSubProgram InputSubProgram)
     {
         InputSubProgram = null;
@@ -50,7 +50,7 @@ public static class MainProgram
         {
             InputSubProgram = programList[InputNumber];
         }
-        catch 
+        catch
         {
             Console.WriteLine("Bitte geben Sie eine gültige Zahl ein!");
             error = true;

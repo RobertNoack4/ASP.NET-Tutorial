@@ -2,7 +2,8 @@
 {
     public class HelloWorld : iSubProgram
     {
-        string programName;
+        private string programName;
+
         string iSubProgram.ProgramName
         {
             get

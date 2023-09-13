@@ -1,14 +1,14 @@
 using ContosoCrafts.WebSite.Services;
 
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-var builder = WebApplication.CreateBuilder(args);
+string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("http://example.com",
+                          _ = policy.WithOrigins("http://example.com",
                                               "https://user-images.githubusercontent.com");
                       });
 });
@@ -18,14 +18,15 @@ builder.Services.AddRazorPages();
 builder.Services.AddMvc().AddRazorRuntimeCompilation();
 builder.Services.AddTransient<JsonFileProductService>();
 builder.Services.AddControllers();
-var app = builder.Build();
+builder.Services.AddServerSideBlazor();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
+    _ = app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    _ = app.UseHsts();
 }
 
 app.UseHttpsRedirection();
@@ -43,6 +44,7 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 app.MapControllers();
+app.MapBlazorHub();
 //app.MapGet("/products", (context) =>
 //{
 //    IEnumerable<Product> products = app.Services.GetService<JsonFileProductService>().GetProducts();

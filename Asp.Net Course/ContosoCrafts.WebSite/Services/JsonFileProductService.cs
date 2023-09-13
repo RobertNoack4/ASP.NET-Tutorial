@@ -12,28 +12,23 @@ namespace ContosoCrafts.WebSite.Services
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        private string JsonFileName
-        {
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
-        }
+        private string JsonFileName => Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json");
 
         public IEnumerable<Product> GetProducts()
         {
-            using (StreamReader jsonFileReader = File.OpenText(JsonFileName))
-            {
-                return JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(),
-                    new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
-            }
+            using StreamReader jsonFileReader = File.OpenText(JsonFileName);
+            return JsonSerializer.Deserialize<Product[]>(jsonFileReader.ReadToEnd(),
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                });
         }
 
         public void AddRating(string productId, int rating)
         {
-            var products = GetProducts();
+            IEnumerable<Product> products = GetProducts();
 
-            var query = products.First(x => x.Id == productId);
+            Product query = products.First(x => x.Id == productId);
 
             if (query.Ratings == null)
             {
@@ -41,22 +36,20 @@ namespace ContosoCrafts.WebSite.Services
             }
             else
             {
-                var ratingList = query.Ratings.ToList();
+                List<int> ratingList = query.Ratings.ToList();
                 ratingList.Add(rating); ;
                 query.Ratings = ratingList.ToArray();
             }
 
-            using (var outPutStream = File.Open(JsonFileName, FileMode.Open))
-            {
-                JsonSerializer.Serialize<IEnumerable<Product>>(
-                    new Utf8JsonWriter(outPutStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    products
-                );
-            }
+            using FileStream outPutStream = File.Open(JsonFileName, FileMode.Open);
+            JsonSerializer.Serialize<IEnumerable<Product>>(
+                new Utf8JsonWriter(outPutStream, new JsonWriterOptions
+                {
+                    SkipValidation = true,
+                    Indented = true
+                }),
+                products
+            );
         }
     }
 }

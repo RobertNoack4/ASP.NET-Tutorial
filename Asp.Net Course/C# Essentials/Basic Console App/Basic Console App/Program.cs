@@ -45,6 +45,10 @@ public static class MainProgram
                 iSubPrograms = new List<iSubProgram>
                 {
                     ParseNumbers.ReadProgram(),
+                    FormatNumbers.ReadProgram(),
+                    DateTimeClass.ReadProgram(),
+                    FormatDates.ReadProgram(),
+                    ParseDates.ReadProgram(),
                 };
                 break;
             default:

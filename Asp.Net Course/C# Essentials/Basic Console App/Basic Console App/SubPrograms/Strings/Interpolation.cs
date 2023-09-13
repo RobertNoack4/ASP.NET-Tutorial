@@ -59,6 +59,7 @@ namespace Basic_Console_App.SubPrograms.Strings
             // Complex objects can be embedded in strings this way as well
             DateTime now = DateTime.Now;
             Console.WriteLine($"Today is {now}");
+
         }
     }
 }

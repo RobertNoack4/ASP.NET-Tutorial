@@ -9,6 +9,8 @@ public static class MainProgram
     {
         List<iSubProgram> iSubPrograms;
 
+        Console.Clear();
+
         if(Mode == 0)
         {
             // Hauptmenü
@@ -25,6 +27,7 @@ public static class MainProgram
             iSubPrograms = new List<iSubProgram>
             {
                 Interpolation.ReadProgram(),
+                Formating.ReadProgram(),
             };
         }
 
@@ -47,13 +50,18 @@ public static class MainProgram
             }
             else
             {
+                Console.ReadLine();
                 RunMainProgram(0);
             }
         }
         else
         {
+            Console.ReadLine();
             RunMainProgram(0);
         }
+
+        Console.ReadLine();
+        RunMainProgram(0);
     }
 
     private static bool LadeSubProgram(

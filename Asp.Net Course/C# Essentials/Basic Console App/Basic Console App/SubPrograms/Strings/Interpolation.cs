@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Strings
+﻿namespace Basic_Console_App.SubPrograms.Strings
 {
     internal class Interpolation : iSubProgram
     {
         private string programName;
+
         string iSubProgram.ProgramName
         {
             get
@@ -26,13 +21,11 @@ namespace Basic_Console_App.SubPrograms.Strings
             return (Interpolation)new Interpolation().Initialize();
         }
 
-
         public iSubProgram Initialize()
         {
             Interpolation interpolation = new Interpolation();
             interpolation.programName = "Interpolation";
             return interpolation;
-
         }
 
         public void Start()
@@ -59,7 +52,6 @@ namespace Basic_Console_App.SubPrograms.Strings
             // Complex objects can be embedded in strings this way as well
             DateTime now = DateTime.Now;
             Console.WriteLine($"Today is {now}");
-
         }
     }
 }

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms
+﻿namespace Basic_Console_App.SubPrograms
 {
     internal class GarbageCollect : iSubProgram
     {
         private string programName;
+
         string iSubProgram.ProgramName
         {
             get
@@ -26,13 +21,11 @@ namespace Basic_Console_App.SubPrograms
             return (GarbageCollect)new GarbageCollect().Initialize();
         }
 
-
         public iSubProgram Initialize()
         {
             GarbageCollect garbageCollect = new GarbageCollect();
             garbageCollect.programName = "Garbage Collector";
             return garbageCollect;
-
         }
 
         public void Start()
@@ -55,7 +48,7 @@ namespace Basic_Console_App.SubPrograms
 
             // Call the function that allocates a large memory chunk
             DoSomeBigOperation();
-            // After the function completes, force a Garbage Collection 
+            // After the function completes, force a Garbage Collection
             GC.Collect();
 
             // Retrieve and print the updated total memory amount

@@ -27,6 +27,7 @@ public static class MainProgram
                     };
 
                 break;
+
             case 1:
 
                 // String Operationen
@@ -51,12 +52,13 @@ public static class MainProgram
                     ParseDates.ReadProgram(),
                 };
                 break;
+
             default:
                 iSubPrograms = null;
                 break;
         }
 
-        if(iSubPrograms == null || iSubPrograms.Count == 0)
+        if (iSubPrograms == null || iSubPrograms.Count == 0)
         {
             MainProgram.RunMainProgram(0);
         }

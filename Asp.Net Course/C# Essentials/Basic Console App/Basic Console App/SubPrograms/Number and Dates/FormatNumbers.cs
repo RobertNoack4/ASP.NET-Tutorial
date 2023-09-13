@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Number_and_Dates
+﻿namespace Basic_Console_App.SubPrograms.Number_and_Dates
 {
     internal class FormatNumbers : iSubProgram
     {
         private string programName;
+
         string iSubProgram.ProgramName
         {
             get
@@ -26,13 +21,11 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
             return (FormatNumbers)new FormatNumbers().Initialize();
         }
 
-
         public iSubProgram Initialize()
         {
             FormatNumbers formatNumbers = new FormatNumbers();
             formatNumbers.programName = "Format Numbers";
             return formatNumbers;
-
         }
 
         public void Start()
@@ -48,7 +41,7 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
 
             // Specifying Numerical formatting
             // General format is {index[,alignment]:[format]}
-            // Common types are N (Number), G (General), F (Fixed-point), 
+            // Common types are N (Number), G (General), F (Fixed-point),
             // E (Exponential), D (Decimal), P (Percent), X (Hexadecimal),
             // C (Currency in local format)
             Console.WriteLine($"{val1:D}, {val1:N}, {val1:F}, {val1:G}");

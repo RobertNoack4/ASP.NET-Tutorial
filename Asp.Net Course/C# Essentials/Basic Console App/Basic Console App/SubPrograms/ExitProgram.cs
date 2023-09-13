@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms
+﻿namespace Basic_Console_App.SubPrograms
 {
     internal class ExitProgram : iSubProgram
     {

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Number_and_Dates
+﻿namespace Basic_Console_App.SubPrograms.Number_and_Dates
 {
     internal class DateTimeClass : iSubProgram
     {
         private string programName;
+
         string iSubProgram.ProgramName
         {
             get
@@ -26,13 +21,11 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
             return (DateTimeClass)new DateTimeClass().Initialize();
         }
 
-
         public iSubProgram Initialize()
         {
             DateTimeClass dateTimeClass = new DateTimeClass();
             dateTimeClass.programName = "DateTime Class";
             return dateTimeClass;
-
         }
 
         public void Start()

@@ -1,14 +1,14 @@
 using ContosoCrafts.WebSite.Services;
 
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-var builder = WebApplication.CreateBuilder(args);
+string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
                       {
-                          policy.WithOrigins("http://example.com",
+                          _ = policy.WithOrigins("http://example.com",
                                               "https://user-images.githubusercontent.com");
                       });
 });
@@ -19,14 +19,14 @@ builder.Services.AddMvc().AddRazorRuntimeCompilation();
 builder.Services.AddTransient<JsonFileProductService>();
 builder.Services.AddControllers();
 builder.Services.AddServerSideBlazor();
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
+    _ = app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    _ = app.UseHsts();
 }
 
 app.UseHttpsRedirection();

@@ -10,7 +10,7 @@ namespace ContosoCrafts.WebSite.Controllers
     {
         public ProductsController(JsonFileProductService jsonFileProductService)
         {
-            this.ProductService = jsonFileProductService;
+            ProductService = jsonFileProductService;
         }
 
         public JsonFileProductService ProductService { get; }

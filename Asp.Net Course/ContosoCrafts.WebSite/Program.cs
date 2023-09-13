@@ -18,6 +18,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddMvc().AddRazorRuntimeCompilation();
 builder.Services.AddTransient<JsonFileProductService>();
 builder.Services.AddControllers();
+builder.Services.AddServerSideBlazor();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -43,6 +44,7 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 app.MapControllers();
+app.MapBlazorHub();
 //app.MapGet("/products", (context) =>
 //{
 //    IEnumerable<Product> products = app.Services.GetService<JsonFileProductService>().GetProducts();

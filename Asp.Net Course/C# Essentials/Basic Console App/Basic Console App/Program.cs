@@ -9,6 +9,7 @@ public static class MainProgram
         List<iSubProgram> iSubPrograms = new List<iSubProgram>
         {
             HelloWorld.ReadProgram(),
+            GarbageCollect.ReadProgram(),
         };
 
         for (int i = 0; i < iSubPrograms.Count; i++)

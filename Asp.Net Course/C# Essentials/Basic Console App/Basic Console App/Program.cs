@@ -1,4 +1,4 @@
-﻿using Basic_Console_App;
+﻿using Basic_Console_App.SubPrograms;
 
 MainProgram.RunMainProgram();
 

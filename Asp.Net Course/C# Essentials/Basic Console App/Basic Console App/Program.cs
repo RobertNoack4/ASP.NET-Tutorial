@@ -68,6 +68,7 @@ namespace Basic_Console_App.MainProgram
                     ReadWriteFiles.ReadProgram(),
                     FileInformation.ReadProgram(),
                     Directories.ReadProgram(),
+                    FilesCollection.ReadProgram(),
                 };
                     break;
                 default:

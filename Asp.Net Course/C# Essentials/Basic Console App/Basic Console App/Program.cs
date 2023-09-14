@@ -72,12 +72,15 @@ namespace Basic_Console_App.MainProgram
                     break;
 
                 case 4:
+
+                    // Regular Expressions
                     iSubPrograms = new List<iSubProgram>
                     {
                         Finding.ReadProgram(),
                         Replacing.ReadProgram(),
+                        Timeouts.ReadProgram(),
+                        ReturnDate.ReadProgram(),
                     };
-                    // Regular Expressions
 
                     break;
 

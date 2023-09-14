@@ -30,7 +30,7 @@
             return interpolation;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
 
@@ -54,6 +54,8 @@
             // Complex objects can be embedded in strings this way as well
             DateTime now = DateTime.Now;
             Console.WriteLine($"Today is {now}");
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

@@ -30,7 +30,7 @@
             return formatNumbers;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Example file for formatting numerical data in .NET
@@ -58,6 +58,8 @@
             Console.WriteLine($"{sales[0],12:C0} {sales[1],12:C0} {sales[2],12:C0} {sales[3],12:C0}");
             Console.WriteLine("International Sales:");
             Console.WriteLine($"{intlMixPct[0],12:P0} {intlMixPct[1],12:P0} {intlMixPct[2],12:P1} {intlMixPct[3],12:P2}");
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

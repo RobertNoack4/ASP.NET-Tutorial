@@ -30,7 +30,7 @@
             return numberAndDatesOperationen;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             MainProgram.MainProgram.RunMainProgram(2);
         }

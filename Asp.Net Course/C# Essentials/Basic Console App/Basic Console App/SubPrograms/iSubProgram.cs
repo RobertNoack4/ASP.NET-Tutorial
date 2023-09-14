@@ -6,6 +6,6 @@
 
         public iSubProgram Initialize();
 
-        public void Start();
+        public void Start(int Mode);
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace Basic_Console_App.SubPrograms.Strings
+﻿namespace Basic_Console_App.SubPrograms
 {
-    internal class StringOperationen : iSubProgram
+    internal class ReturnToMainMenue : iSubProgram
     {
         private string programName;
 
@@ -16,23 +16,23 @@
             }
         }
 
-        public static StringOperationen ReadProgram()
+        public static ReturnToMainMenue ReadProgram()
         {
-            return (StringOperationen)new StringOperationen().Initialize();
+            return (ReturnToMainMenue)new ReturnToMainMenue().Initialize();
         }
 
         public iSubProgram Initialize()
         {
-            StringOperationen stringOperationen = new()
+            ReturnToMainMenue returnToMainMenue = new()
             {
-                programName = "String Operationen"
+                programName = "Return to main menue"
             };
-            return stringOperationen;
+            return returnToMainMenue;
         }
 
         public void Start(int Mode)
         {
-            MainProgram.MainProgram.RunMainProgram(1);
+            MainProgram.MainProgram.RunMainProgram(0);
         }
     }
 }

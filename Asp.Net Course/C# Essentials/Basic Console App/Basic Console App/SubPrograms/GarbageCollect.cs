@@ -30,7 +30,7 @@
             return garbageCollect;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // Exercise file for LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Demonstration of Garbage Collection
@@ -55,6 +55,8 @@
 
             // Retrieve and print the updated total memory amount
             Console.WriteLine($"Allocated memory is: {GC.GetTotalMemory(false)}");
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

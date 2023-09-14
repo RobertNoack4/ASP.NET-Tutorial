@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Basic_Console_App.MainProgram;
+﻿using System.Globalization;
 
 namespace Basic_Console_App.SubPrograms.Number_and_Dates
 {
     internal class DaysSince : iSubProgram
     {
         private string programName;
+        private int Mode;
 
         string iSubProgram.ProgramName
         {
@@ -38,9 +33,10 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
             return daysSince;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             MainLoop();
+            this.Mode = Mode;
         }
 
         private void MainLoop()
@@ -50,17 +46,17 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
 
             string response = Console.ReadLine();
 
-            if(response == null) 
+            if (response == null)
             {
                 Console.WriteLine("Bitte geben sie etwas ein!");
                 Console.ReadLine();
                 MainLoop();
             }
-            else if(response.ToLower() == "exit")
+            else if (response.ToLower() == "exit")
             {
                 Exit();
             }
-            else if(!ConvertToDateTime(response, out DateTime dateTime))
+            else if (!ConvertToDateTime(response, out DateTime dateTime))
             {
                 Console.WriteLine("Bitte geben sie das Datum im Format dd.MM.yyyy ein!");
                 Console.ReadLine();
@@ -72,7 +68,6 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
                 Console.ReadLine();
                 MainLoop();
             }
-
         }
 
         private bool ConvertToDateTime(string value, out DateTime dateTime)
@@ -87,7 +82,7 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
 
         private void Exit()
         {
-            MainProgram.MainProgram.RunMainProgram(0);
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

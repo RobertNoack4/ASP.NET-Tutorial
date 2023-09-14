@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Files
+﻿namespace Basic_Console_App.SubPrograms.Files
 {
     internal class Directories : iSubProgram
     {
@@ -36,7 +30,7 @@ namespace Basic_Console_App.SubPrograms.Files
             return directories;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Creating and Deleting Directories
@@ -87,6 +81,8 @@ namespace Basic_Console_App.SubPrograms.Files
             {
                 Console.WriteLine(dir);
             }
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

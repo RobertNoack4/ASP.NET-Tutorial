@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Files
+﻿namespace Basic_Console_App.SubPrograms.Files
 {
     internal class FilesCollection : iSubProgram
     {
@@ -36,7 +30,7 @@ namespace Basic_Console_App.SubPrograms.Files
             return filesCollection;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Solution for the Files Programming Challenge
@@ -50,15 +44,6 @@ namespace Basic_Console_App.SubPrograms.Files
             long XLSSize = 0, DOCSize = 0, PPTSize = 0;
             long totalfiles = 0;
             long totalsize = 0;
-
-            bool IsOfficeFile(string filename)
-            {
-                // if the file ends with a known office suffix, return true
-                if (filename.EndsWith(".xlsx") || filename.EndsWith(".docx")
-                    || filename.EndsWith(".pptx"))
-                    return true;
-                return false;
-            }
 
             // create a DirectoryInfo for the given folder
             DirectoryInfo di = new DirectoryInfo(folder);
@@ -111,6 +96,8 @@ namespace Basic_Console_App.SubPrograms.Files
             }
             string content = File.ReadAllText(resultsfile);
             Console.Write(content);
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
 
         private void Copy(string sourceDir, string targetDir)
@@ -118,10 +105,29 @@ namespace Basic_Console_App.SubPrograms.Files
             Directory.CreateDirectory(targetDir);
 
             foreach (var file in Directory.GetFiles(sourceDir))
-                File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
+            {
+                if (File.Exists(file))
+                {
+                    File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)));
+                }
+            }
 
             foreach (var directory in Directory.GetDirectories(sourceDir))
-                Copy(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
+            {
+                if (Directory.Exists(directory))
+                {
+                    Copy(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
+                }
+            }
+        }
+
+        private bool IsOfficeFile(string filename)
+        {
+            // if the file ends with a known office suffix, return true
+            if (filename.EndsWith(".xlsx") || filename.EndsWith(".docx")
+                || filename.EndsWith(".pptx"))
+                return true;
+            return false;
         }
     }
 }

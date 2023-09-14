@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Files
+﻿namespace Basic_Console_App.SubPrograms.Files
 {
-    internal class FileInformation: iSubProgram
+    internal class FileInformation : iSubProgram
     {
         private string programName;
 
@@ -36,7 +30,7 @@ namespace Basic_Console_App.SubPrograms.Files
             return fileInfo;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Working with file information
@@ -60,7 +54,7 @@ namespace Basic_Console_App.SubPrograms.Files
             File.SetAttributes(filename, FileAttributes.ReadOnly);
             Console.WriteLine(File.GetAttributes(filename));
 
-            // We can also get general information using a FileInfo 
+            // We can also get general information using a FileInfo
             try
             {
                 FileInfo fi = new FileInfo(filename);
@@ -77,6 +71,8 @@ namespace Basic_Console_App.SubPrograms.Files
             DateTime dt = new DateTime(2020, 7, 1);
             File.SetCreationTime(filename, dt);
             Console.WriteLine(File.GetCreationTime(filename));
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

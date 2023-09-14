@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Basic_Console_App.MainProgram;
-
-namespace Basic_Console_App.SubPrograms.Files
+﻿namespace Basic_Console_App.SubPrograms.Files
 {
     internal class FilesOperationen : iSubProgram
     {
@@ -37,7 +30,7 @@ namespace Basic_Console_App.SubPrograms.Files
             return helloWorld;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             MainProgram.MainProgram.RunMainProgram(3);
         }

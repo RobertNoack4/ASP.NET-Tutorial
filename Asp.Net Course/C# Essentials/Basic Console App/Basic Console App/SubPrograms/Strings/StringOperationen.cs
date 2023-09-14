@@ -1,4 +1,6 @@
-﻿namespace Basic_Console_App.SubPrograms.Strings
+﻿using Basic_Console_App.MainProgram;
+
+namespace Basic_Console_App.SubPrograms.Strings
 {
     internal class StringOperationen : iSubProgram
     {
@@ -23,14 +25,16 @@
 
         public iSubProgram Initialize()
         {
-            StringOperationen stringOperationen = new StringOperationen();
-            stringOperationen.programName = "String Operationen";
+            StringOperationen stringOperationen = new()
+            {
+                programName = "String Operationen"
+            };
             return stringOperationen;
         }
 
         public void Start()
         {
-            MainProgram.RunMainProgram(1);
+            MainProgram.MainProgram.RunMainProgram(1);
         }
     }
 }

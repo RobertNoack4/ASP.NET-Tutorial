@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            ExitProgram exitProgram = new ExitProgram();
-            exitProgram.programName = "Exit program";
+            ExitProgram exitProgram = new()
+            {
+                programName = "Exit program"
+            };
             return exitProgram;
         }
 

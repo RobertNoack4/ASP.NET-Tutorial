@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            FormatNumbers formatNumbers = new FormatNumbers();
-            formatNumbers.programName = "Format Numbers";
+            FormatNumbers formatNumbers = new()
+            {
+                programName = "Format Numbers"
+            };
             return formatNumbers;
         }
 

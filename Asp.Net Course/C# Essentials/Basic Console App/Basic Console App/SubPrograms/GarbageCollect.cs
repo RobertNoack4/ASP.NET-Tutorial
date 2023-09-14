@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            GarbageCollect garbageCollect = new GarbageCollect();
-            garbageCollect.programName = "Garbage Collector";
+            GarbageCollect garbageCollect = new()
+            {
+                programName = "Garbage Collector"
+            };
             return garbageCollect;
         }
 

@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            Formating formating = new Formating();
-            formating.programName = "Formating";
+            Formating formating = new()
+            {
+                programName = "Formating"
+            };
             return formating;
         }
 

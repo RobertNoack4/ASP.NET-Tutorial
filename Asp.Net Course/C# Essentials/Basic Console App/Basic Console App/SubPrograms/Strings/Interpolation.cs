@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            Interpolation interpolation = new Interpolation();
-            interpolation.programName = "Interpolation";
+            Interpolation interpolation = new()
+            {
+                programName = "Interpolation"
+            };
             return interpolation;
         }
 

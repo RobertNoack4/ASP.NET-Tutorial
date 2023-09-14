@@ -23,14 +23,16 @@
 
         public iSubProgram Initialize()
         {
-            NumbersAndDatesOperationen numberAndDatesOperationen = new NumbersAndDatesOperationen();
-            numberAndDatesOperationen.programName = "Number And Dates";
+            NumbersAndDatesOperationen numberAndDatesOperationen = new()
+            {
+                programName = "Number And Dates"
+            };
             return numberAndDatesOperationen;
         }
 
         public void Start()
         {
-            MainProgram.RunMainProgram(2);
+            MainProgram.MainProgram.RunMainProgram(2);
         }
     }
 }

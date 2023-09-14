@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            DateTimeClass dateTimeClass = new DateTimeClass();
-            dateTimeClass.programName = "DateTime Class";
+            DateTimeClass dateTimeClass = new()
+            {
+                programName = "DateTime Class"
+            };
             return dateTimeClass;
         }
 

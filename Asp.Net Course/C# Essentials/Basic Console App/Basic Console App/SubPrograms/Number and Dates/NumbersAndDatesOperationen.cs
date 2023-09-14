@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            NumbersAndDatesOperationen numberAndDatesOperationen = new NumbersAndDatesOperationen();
-            numberAndDatesOperationen.programName = "Number And Dates";
+            NumbersAndDatesOperationen numberAndDatesOperationen = new()
+            {
+                programName = "Number And Dates"
+            };
             return numberAndDatesOperationen;
         }
 

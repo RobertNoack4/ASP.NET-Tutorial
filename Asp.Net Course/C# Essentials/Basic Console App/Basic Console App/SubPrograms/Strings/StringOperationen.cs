@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            StringOperationen stringOperationen = new StringOperationen();
-            stringOperationen.programName = "String Operationen";
+            StringOperationen stringOperationen = new()
+            {
+                programName = "String Operationen"
+            };
             return stringOperationen;
         }
 

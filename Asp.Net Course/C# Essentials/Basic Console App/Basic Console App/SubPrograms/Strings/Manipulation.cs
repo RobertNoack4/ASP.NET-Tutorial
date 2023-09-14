@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            Manipulation manipulation = new Manipulation();
-            manipulation.programName = "Manipulation";
+            Manipulation manipulation = new()
+            {
+                programName = "Manipulation"
+            };
             return manipulation;
         }
 

@@ -25,8 +25,10 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
 
         public iSubProgram Initialize()
         {
-            FormatDates formatDates = new FormatDates();
-            formatDates.programName = "Format Dates";
+            FormatDates formatDates = new()
+            {
+                programName = "Format Dates"
+            };
             return formatDates;
         }
 

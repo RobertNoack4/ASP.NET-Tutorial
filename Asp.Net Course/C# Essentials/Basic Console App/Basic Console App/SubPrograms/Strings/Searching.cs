@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            Searching searching = new Searching();
-            searching.programName = "Searching";
+            Searching searching = new()
+            {
+                programName = "Searching"
+            };
             return searching;
         }
 

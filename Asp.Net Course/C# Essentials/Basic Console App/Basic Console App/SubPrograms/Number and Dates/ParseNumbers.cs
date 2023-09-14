@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            ParseNumbers parseNumbers = new ParseNumbers();
-            parseNumbers.programName = "Parse Numbers";
+            ParseNumbers parseNumbers = new()
+            {
+                programName = "Parse Numbers"
+            };
             return parseNumbers;
         }
 

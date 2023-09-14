@@ -1,4 +1,5 @@
 ﻿using Basic_Console_App.SubPrograms;
+using Basic_Console_App.SubPrograms.Files;
 using Basic_Console_App.SubPrograms.Number_and_Dates;
 using Basic_Console_App.SubPrograms.Strings;
 
@@ -8,24 +9,25 @@ public static class MainProgram
 {
     public static void RunMainProgram(int Mode)
     {
-        List<iSubProgram> iSubPrograms;
+        List<iSubProgram>? iSubPrograms;
 
         Console.Clear();
 
         switch (Mode)
         {
-            // Hauptmenü
             case 0:
+
+                // Hauptmenü
                 iSubPrograms = new List<iSubProgram>
                     {
                         HelloWorld.ReadProgram(),
                         GarbageCollect.ReadProgram(),
                         StringOperationen.ReadProgram(),
                         NumbersAndDatesOperationen.ReadProgram(),
+                        FilesOperationen.ReadProgram(),
 
                         ExitProgram.ReadProgram(),
                     };
-
                 break;
 
             case 1:
@@ -50,9 +52,16 @@ public static class MainProgram
                     DateTimeClass.ReadProgram(),
                     FormatDates.ReadProgram(),
                     ParseDates.ReadProgram(),
+                    DaysSince.ReadProgram(),
                 };
                 break;
 
+            case 3:
+                iSubPrograms = new List<iSubProgram>
+                {
+
+                };
+                break;
             default:
                 iSubPrograms = null;
                 break;
@@ -62,38 +71,40 @@ public static class MainProgram
         {
             MainProgram.RunMainProgram(0);
         }
-
-        for (int i = 0; i < iSubPrograms.Count; i++)
+        else
         {
-            Console.WriteLine($"{i}: {iSubPrograms[i].ProgramName}");
-        }
+            for (int i = 0; i < iSubPrograms.Count; i++)
+            {
+                Console.WriteLine($"{i}: {iSubPrograms[i].ProgramName}");
+            }
 
-        string Input = Console.ReadLine();
+            string Input = Console.ReadLine();
 
-        bool error = MainProgram.ConvertToNumber(Input, out int InputNumber);
-
-        if (!error)
-        {
-            error = MainProgram.LadeSubProgram(InputNumber, iSubPrograms, out iSubProgram inputSubProgram);
+            bool error = MainProgram.ConvertToNumber(Input, out int InputNumber);
 
             if (!error)
             {
-                inputSubProgram.Start();
+                error = MainProgram.LadeSubProgram(InputNumber, iSubPrograms, out iSubProgram inputSubProgram);
+
+                if (!error)
+                {
+                    inputSubProgram.Start();
+                }
+                else
+                {
+                    Console.ReadLine();
+                    RunMainProgram(0);
+                }
             }
             else
             {
                 Console.ReadLine();
                 RunMainProgram(0);
             }
-        }
-        else
-        {
+
             Console.ReadLine();
             RunMainProgram(0);
         }
-
-        Console.ReadLine();
-        RunMainProgram(0);
     }
 
     private static bool LadeSubProgram(

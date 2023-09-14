@@ -23,8 +23,10 @@
 
         public iSubProgram Initialize()
         {
-            HelloWorld helloWorld = new HelloWorld();
-            helloWorld.programName = "Hello World";
+            HelloWorld helloWorld = new()
+            {
+                programName = "Hello World"
+            };
             return helloWorld;
         }
 

@@ -1,6 +1,4 @@
-﻿using Basic_Console_App.MainProgram;
-
-namespace Basic_Console_App.SubPrograms.Strings
+﻿namespace Basic_Console_App.SubPrograms.Strings
 {
     internal class StringOperationen : iSubProgram
     {

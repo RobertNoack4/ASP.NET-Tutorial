@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Basic_Console_App.MainProgram;
+﻿using System.Globalization;
 
 namespace Basic_Console_App.SubPrograms.Number_and_Dates
 {
@@ -52,17 +46,17 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
 
             string response = Console.ReadLine();
 
-            if(response == null) 
+            if (response == null)
             {
                 Console.WriteLine("Bitte geben sie etwas ein!");
                 Console.ReadLine();
                 MainLoop();
             }
-            else if(response.ToLower() == "exit")
+            else if (response.ToLower() == "exit")
             {
                 Exit();
             }
-            else if(!ConvertToDateTime(response, out DateTime dateTime))
+            else if (!ConvertToDateTime(response, out DateTime dateTime))
             {
                 Console.WriteLine("Bitte geben sie das Datum im Format dd.MM.yyyy ein!");
                 Console.ReadLine();
@@ -74,7 +68,6 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
                 Console.ReadLine();
                 MainLoop();
             }
-
         }
 
         private bool ConvertToDateTime(string value, out DateTime dateTime)

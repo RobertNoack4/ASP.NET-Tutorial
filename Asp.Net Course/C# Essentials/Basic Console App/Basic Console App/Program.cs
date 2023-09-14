@@ -1,9 +1,9 @@
-﻿using Basic_Console_App.SubPrograms;
+﻿using Basic_Console_App.MainProgram;
+using Basic_Console_App.SubPrograms;
 using Basic_Console_App.SubPrograms.Files;
 using Basic_Console_App.SubPrograms.Number_and_Dates;
-using Basic_Console_App.SubPrograms.Strings;
-using Basic_Console_App.MainProgram;
 using Basic_Console_App.SubPrograms.Regular_Expressions;
+using Basic_Console_App.SubPrograms.Strings;
 
 MainProgram.RunMainProgram(0);
 
@@ -29,7 +29,6 @@ namespace Basic_Console_App.MainProgram
                         NumbersAndDatesOperationen.ReadProgram(),
                         FilesOperationen.ReadProgram(),
                         RegularExpressionsOperationen.ReadProgram(),
-
                     };
                     break;
 
@@ -92,7 +91,7 @@ namespace Basic_Console_App.MainProgram
                 MainProgram.RunMainProgram(0);
             }
 
-            if(Mode == 0)
+            if (Mode == 0)
             {
                 iSubPrograms.Add(ExitProgram.ReadProgram());
             }
@@ -100,7 +99,7 @@ namespace Basic_Console_App.MainProgram
             {
                 iSubPrograms.Add(ReturnToMainMenue.ReadProgram());
             }
-           
+
             for (int i = 0; i < iSubPrograms.Count; i++)
             {
                 Console.WriteLine($"{i}: {iSubPrograms[i].ProgramName}");

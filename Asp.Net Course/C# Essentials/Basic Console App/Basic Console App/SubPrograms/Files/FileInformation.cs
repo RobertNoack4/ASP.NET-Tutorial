@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Files
+﻿namespace Basic_Console_App.SubPrograms.Files
 {
-    internal class FileInformation: iSubProgram
+    internal class FileInformation : iSubProgram
     {
         private string programName;
 
@@ -60,7 +54,7 @@ namespace Basic_Console_App.SubPrograms.Files
             File.SetAttributes(filename, FileAttributes.ReadOnly);
             Console.WriteLine(File.GetAttributes(filename));
 
-            // We can also get general information using a FileInfo 
+            // We can also get general information using a FileInfo
             try
             {
                 FileInfo fi = new FileInfo(filename);

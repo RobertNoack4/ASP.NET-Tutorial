@@ -1,11 +1,4 @@
-﻿using Basic_Console_App.SubPrograms.Number_and_Dates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Basic_Console_App.SubPrograms.Regular_Expressions
+﻿namespace Basic_Console_App.SubPrograms.Regular_Expressions
 {
     internal class RegularExpressionsOperationen : iSubProgram
     {

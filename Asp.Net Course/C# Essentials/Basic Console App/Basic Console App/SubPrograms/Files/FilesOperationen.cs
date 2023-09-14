@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Basic_Console_App.MainProgram;
-
-namespace Basic_Console_App.SubPrograms.Files
+﻿namespace Basic_Console_App.SubPrograms.Files
 {
     internal class FilesOperationen : iSubProgram
     {

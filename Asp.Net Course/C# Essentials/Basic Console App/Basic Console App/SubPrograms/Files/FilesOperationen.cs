@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Basic_Console_App.MainProgram;
 
 namespace Basic_Console_App.SubPrograms.Files
 {
@@ -38,7 +39,7 @@ namespace Basic_Console_App.SubPrograms.Files
 
         public void Start()
         {
-            MainProgram.RunMainProgram(3);
+            MainProgram.MainProgram.RunMainProgram(3);
         }
     }
 }

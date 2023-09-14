@@ -32,7 +32,7 @@
 
         public void Start()
         {
-            MainProgram.RunMainProgram(2);
+            MainProgram.MainProgram.RunMainProgram(2);
         }
     }
 }

@@ -2,23 +2,26 @@
 using Basic_Console_App.SubPrograms.Files;
 using Basic_Console_App.SubPrograms.Number_and_Dates;
 using Basic_Console_App.SubPrograms.Strings;
+using Basic_Console_App.MainProgram;
 
 MainProgram.RunMainProgram(0);
 
-public static class MainProgram
+namespace Basic_Console_App.MainProgram
 {
-    public static void RunMainProgram(int Mode)
+    public static class MainProgram
     {
-        List<iSubProgram>? iSubPrograms;
-
-        Console.Clear();
-
-        switch (Mode)
+        public static void RunMainProgram(int Mode)
         {
-            case 0:
+            List<iSubProgram>? iSubPrograms;
 
-                // Hauptmenü
-                iSubPrograms = new List<iSubProgram>
+            Console.Clear();
+
+            switch (Mode)
+            {
+                case 0:
+
+                    // Hauptmenü
+                    iSubPrograms = new List<iSubProgram>
                     {
                         HelloWorld.ReadProgram(),
                         GarbageCollect.ReadProgram(),
@@ -28,24 +31,24 @@ public static class MainProgram
 
                         ExitProgram.ReadProgram(),
                     };
-                break;
+                    break;
 
-            case 1:
+                case 1:
 
-                // String Operationen
-                iSubPrograms = new List<iSubProgram>
+                    // String Operationen
+                    iSubPrograms = new List<iSubProgram>
                     {
                         Interpolation.ReadProgram(),
                         Formating.ReadProgram(),
                         Manipulation.ReadProgram(),
                         Searching.ReadProgram(),
                     };
-                break;
+                    break;
 
-            case 2:
+                case 2:
 
-                // Number and Dates Operationen
-                iSubPrograms = new List<iSubProgram>
+                    // Number and Dates Operationen
+                    iSubPrograms = new List<iSubProgram>
                 {
                     ParseNumbers.ReadProgram(),
                     FormatNumbers.ReadProgram(),
@@ -54,94 +57,100 @@ public static class MainProgram
                     ParseDates.ReadProgram(),
                     DaysSince.ReadProgram(),
                 };
-                break;
+                    break;
 
-            case 3:
-                iSubPrograms = new List<iSubProgram>
+                case 3:
+
+                    // Files
+                    iSubPrograms = new List<iSubProgram>
                 {
-
+                    CreateFiles.ReadProgram(),
+                    ReadWriteFiles.ReadProgram(),
+                    FileInformation.ReadProgram(),
+                    Directories.ReadProgram(),
                 };
-                break;
-            default:
-                iSubPrograms = null;
-                break;
-        }
-
-        if (iSubPrograms == null || iSubPrograms.Count == 0)
-        {
-            MainProgram.RunMainProgram(0);
-        }
-        else
-        {
-            for (int i = 0; i < iSubPrograms.Count; i++)
-            {
-                Console.WriteLine($"{i}: {iSubPrograms[i].ProgramName}");
+                    break;
+                default:
+                    iSubPrograms = null;
+                    break;
             }
 
-            string Input = Console.ReadLine();
-
-            bool error = MainProgram.ConvertToNumber(Input, out int InputNumber);
-
-            if (!error)
+            if (iSubPrograms == null || iSubPrograms.Count == 0)
             {
-                error = MainProgram.LadeSubProgram(InputNumber, iSubPrograms, out iSubProgram inputSubProgram);
+                MainProgram.RunMainProgram(0);
+            }
+            else
+            {
+                for (int i = 0; i < iSubPrograms.Count; i++)
+                {
+                    Console.WriteLine($"{i}: {iSubPrograms[i].ProgramName}");
+                }
+
+                string Input = Console.ReadLine();
+
+                bool error = MainProgram.ConvertToNumber(Input, out int InputNumber);
 
                 if (!error)
                 {
-                    inputSubProgram.Start();
+                    error = MainProgram.LadeSubProgram(InputNumber, iSubPrograms, out iSubProgram inputSubProgram);
+
+                    if (!error)
+                    {
+                        inputSubProgram.Start();
+                    }
+                    else
+                    {
+                        Console.ReadLine();
+                        RunMainProgram(0);
+                    }
                 }
                 else
                 {
                     Console.ReadLine();
                     RunMainProgram(0);
                 }
-            }
-            else
-            {
+
                 Console.ReadLine();
                 RunMainProgram(0);
             }
-
-            Console.ReadLine();
-            RunMainProgram(0);
         }
-    }
 
-    private static bool LadeSubProgram(
-        int InputNumber,
-        List<iSubProgram> programList,
-        out iSubProgram InputSubProgram)
-    {
-        InputSubProgram = null;
-        bool error = false;
-        try
+        private static bool LadeSubProgram(
+            int InputNumber,
+            List<iSubProgram> programList,
+            out iSubProgram InputSubProgram)
         {
-            InputSubProgram = programList[InputNumber];
+            InputSubProgram = null;
+            bool error = false;
+            try
+            {
+                InputSubProgram = programList[InputNumber];
+            }
+            catch
+            {
+                Console.WriteLine("Bitte geben Sie eine gültige Zahl ein!");
+                error = true;
+            }
+
+            return error;
         }
-        catch
+
+        private static bool ConvertToNumber(string Input, out int InputNumber)
         {
-            Console.WriteLine("Bitte geben Sie eine gültige Zahl ein!");
-            error = true;
+            InputNumber = -1;
+
+            bool error = false;
+            try
+            {
+                InputNumber = Convert.ToInt32(Input);
+            }
+            catch
+            {
+                Console.WriteLine("Bitte geben sie eine Zahl ein!");
+                error = true;
+            }
+
+            return error;
         }
-
-        return error;
-    }
-
-    private static bool ConvertToNumber(string Input, out int InputNumber)
-    {
-        InputNumber = -1;
-
-        bool error = false;
-        try
-        {
-            InputNumber = Convert.ToInt32(Input);
-        }
-        catch
-        {
-            Console.WriteLine("Bitte geben sie eine Zahl ein!");
-            error = true;
-        }
-
-        return error;
     }
 }

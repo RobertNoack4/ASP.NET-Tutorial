@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Basic_Console_App.MainProgram;
 
 namespace Basic_Console_App.SubPrograms.Number_and_Dates
 {
@@ -86,7 +87,7 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
 
         private void Exit()
         {
-            MainProgram.RunMainProgram(0);
+            MainProgram.MainProgram.RunMainProgram(0);
         }
     }
 }

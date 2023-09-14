@@ -30,7 +30,7 @@
             return manipulation;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             string str1 = "The quick brown fox jumps over the lazy dog.";
             string str2 = "This is a string";
@@ -81,6 +81,8 @@
             // Replacing content
             outstr = str1.Replace("fox", "cat");
             Console.WriteLine($"{outstr}");
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

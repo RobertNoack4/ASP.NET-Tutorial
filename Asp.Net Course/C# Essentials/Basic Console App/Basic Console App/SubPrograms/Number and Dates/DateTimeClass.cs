@@ -30,7 +30,7 @@
             return dateTimeClass;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Example file for working with Dates and Times
@@ -68,6 +68,8 @@
             // Dates can be compared using regular operators
             Console.WriteLine($"{NewYears < AprilFools}");
             Console.WriteLine($"{NewYears > AprilFools}");
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

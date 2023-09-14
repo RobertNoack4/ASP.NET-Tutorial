@@ -32,7 +32,7 @@ namespace Basic_Console_App.SubPrograms.Strings
             return stringOperationen;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             MainProgram.MainProgram.RunMainProgram(1);
         }

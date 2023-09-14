@@ -30,7 +30,7 @@
             return searching;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Example file for searching string content
@@ -60,6 +60,7 @@
             Console.WriteLine($"{String.IsNullOrEmpty(str1)}");
             Console.WriteLine($"{String.IsNullOrEmpty(str3)}");
             Console.WriteLine($"{String.IsNullOrWhiteSpace(str2)}");
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

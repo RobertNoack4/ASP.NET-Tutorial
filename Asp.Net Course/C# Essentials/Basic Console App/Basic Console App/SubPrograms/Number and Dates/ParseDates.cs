@@ -30,7 +30,7 @@
             return parseDates;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Example file for parsing dates from strings
@@ -59,6 +59,8 @@
                     Console.WriteLine($"Could not parse '{datestr}'");
                 }
             }
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

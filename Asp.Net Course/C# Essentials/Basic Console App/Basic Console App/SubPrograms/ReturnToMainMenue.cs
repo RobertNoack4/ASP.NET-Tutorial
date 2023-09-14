@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Basic_Console_App.MainProgram;
 
-namespace Basic_Console_App.SubPrograms.Files
+namespace Basic_Console_App.SubPrograms
 {
-    internal class FilesOperationen : iSubProgram
+    internal class ReturnToMainMenue : iSubProgram
     {
         private string programName;
 
@@ -23,23 +22,23 @@ namespace Basic_Console_App.SubPrograms.Files
             }
         }
 
-        public static FilesOperationen ReadProgram()
+        public static ReturnToMainMenue ReadProgram()
         {
-            return (FilesOperationen)new FilesOperationen().Initialize();
+            return (ReturnToMainMenue)new ReturnToMainMenue().Initialize();
         }
 
         public iSubProgram Initialize()
         {
-            FilesOperationen helloWorld = new()
+            ReturnToMainMenue returnToMainMenue = new()
             {
-                programName = "Files"
+                programName = "Return to main menue"
             };
-            return helloWorld;
+            return returnToMainMenue;
         }
 
         public void Start(int Mode)
         {
-            MainProgram.MainProgram.RunMainProgram(3);
+            MainProgram.MainProgram.RunMainProgram(0);
         }
     }
 }

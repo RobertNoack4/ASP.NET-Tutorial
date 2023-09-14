@@ -30,7 +30,7 @@
             return formating;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Example file for formatting string content
@@ -45,6 +45,8 @@
             // Spacing and Alignment: Interpolation
             Console.WriteLine("{0,-15} {1,10}", "Float Val", "Int Val");
             Console.WriteLine($"{f1,-15} {i1,10}");
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

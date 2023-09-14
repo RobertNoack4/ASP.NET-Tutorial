@@ -3,6 +3,7 @@ using Basic_Console_App.SubPrograms.Files;
 using Basic_Console_App.SubPrograms.Number_and_Dates;
 using Basic_Console_App.SubPrograms.Strings;
 using Basic_Console_App.MainProgram;
+using Basic_Console_App.SubPrograms.Regular_Expressions;
 
 MainProgram.RunMainProgram(0);
 
@@ -12,9 +13,8 @@ namespace Basic_Console_App.MainProgram
     {
         public static void RunMainProgram(int Mode)
         {
-            List<iSubProgram>? iSubPrograms;
-
             Console.Clear();
+            List<iSubProgram>? iSubPrograms;
 
             switch (Mode)
             {
@@ -28,8 +28,8 @@ namespace Basic_Console_App.MainProgram
                         StringOperationen.ReadProgram(),
                         NumbersAndDatesOperationen.ReadProgram(),
                         FilesOperationen.ReadProgram(),
+                        RegularExpressionsOperationen.ReadProgram(),
 
-                        ExitProgram.ReadProgram(),
                     };
                     break;
 
@@ -49,28 +49,39 @@ namespace Basic_Console_App.MainProgram
 
                     // Number and Dates Operationen
                     iSubPrograms = new List<iSubProgram>
-                {
-                    ParseNumbers.ReadProgram(),
-                    FormatNumbers.ReadProgram(),
-                    DateTimeClass.ReadProgram(),
-                    FormatDates.ReadProgram(),
-                    ParseDates.ReadProgram(),
-                    DaysSince.ReadProgram(),
-                };
+                    {
+                        ParseNumbers.ReadProgram(),
+                        FormatNumbers.ReadProgram(),
+                        DateTimeClass.ReadProgram(),
+                        FormatDates.ReadProgram(),
+                        ParseDates.ReadProgram(),
+                        DaysSince.ReadProgram(),
+                    };
                     break;
 
                 case 3:
 
                     // Files
                     iSubPrograms = new List<iSubProgram>
-                {
-                    CreateFiles.ReadProgram(),
-                    ReadWriteFiles.ReadProgram(),
-                    FileInformation.ReadProgram(),
-                    Directories.ReadProgram(),
-                    FilesCollection.ReadProgram(),
-                };
+                    {
+                        CreateFiles.ReadProgram(),
+                        ReadWriteFiles.ReadProgram(),
+                        FileInformation.ReadProgram(),
+                        Directories.ReadProgram(),
+                        FilesCollection.ReadProgram(),
+                    };
                     break;
+
+                case 4:
+                    iSubPrograms = new List<iSubProgram>
+                    {
+                        Finding.ReadProgram(),
+                        Replacing.ReadProgram(),
+                    };
+                    // Regular Expressions
+
+                    break;
+
                 default:
                     iSubPrograms = null;
                     break;
@@ -80,40 +91,50 @@ namespace Basic_Console_App.MainProgram
             {
                 MainProgram.RunMainProgram(0);
             }
+
+            if(Mode == 0)
+            {
+                iSubPrograms.Add(ExitProgram.ReadProgram());
+            }
             else
             {
-                for (int i = 0; i < iSubPrograms.Count; i++)
-                {
-                    Console.WriteLine($"{i}: {iSubPrograms[i].ProgramName}");
-                }
+                iSubPrograms.Add(ReturnToMainMenue.ReadProgram());
+            }
+           
+            for (int i = 0; i < iSubPrograms.Count; i++)
+            {
+                Console.WriteLine($"{i}: {iSubPrograms[i].ProgramName}");
+            }
 
-                string Input = Console.ReadLine();
+            string Input = Console.ReadLine();
 
-                bool error = MainProgram.ConvertToNumber(Input, out int InputNumber);
+            bool error = MainProgram.ConvertToNumber(Input, out int InputNumber);
+
+            if (!error)
+            {
+                error = MainProgram.LadeSubProgram(InputNumber, iSubPrograms, out iSubProgram inputSubProgram);
 
                 if (!error)
                 {
-                    error = MainProgram.LadeSubProgram(InputNumber, iSubPrograms, out iSubProgram inputSubProgram);
-
-                    if (!error)
-                    {
-                        inputSubProgram.Start();
-                    }
-                    else
-                    {
-                        Console.ReadLine();
-                        RunMainProgram(0);
-                    }
+                    inputSubProgram.Start(Mode);
                 }
                 else
                 {
                     Console.ReadLine();
                     RunMainProgram(0);
                 }
-
+            }
+            else
+            {
                 Console.ReadLine();
                 RunMainProgram(0);
             }
+        }
+
+        public static void ReturnToMenue(int Mode)
+        {
+            Console.ReadLine();
+            RunMainProgram(Mode);
         }
 
         private static bool LadeSubProgram(

@@ -32,7 +32,7 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
             return formatDates;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Example file for formatting date information
@@ -62,6 +62,8 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
             Console.WriteLine($"{AprFools:dddd, MMMM d yyyy}");
             Console.WriteLine($"{AprFools:ddd h:mm:ss tt}");
             Console.WriteLine($"{AprFools:MMM d yyyy}");
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

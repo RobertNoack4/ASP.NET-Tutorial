@@ -11,6 +11,7 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
     internal class DaysSince : iSubProgram
     {
         private string programName;
+        private int Mode;
 
         string iSubProgram.ProgramName
         {
@@ -38,9 +39,10 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
             return daysSince;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             MainLoop();
+            this.Mode = Mode;
         }
 
         private void MainLoop()
@@ -87,7 +89,7 @@ namespace Basic_Console_App.SubPrograms.Number_and_Dates
 
         private void Exit()
         {
-            MainProgram.MainProgram.RunMainProgram(0);
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

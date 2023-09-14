@@ -30,7 +30,7 @@
             return exitProgram;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             Environment.Exit(0);
         }

@@ -30,7 +30,7 @@
             return parseNumbers;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Example file for parsing numerical data from strings
@@ -70,6 +70,8 @@
 
             result = float.TryParse(NumStrs[3], out testfloat);
             Console.WriteLine($"{result} -- '{NumStrs[3]}' : {testfloat}");
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

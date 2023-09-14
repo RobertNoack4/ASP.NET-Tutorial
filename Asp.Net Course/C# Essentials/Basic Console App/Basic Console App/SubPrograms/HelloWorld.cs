@@ -30,7 +30,7 @@
             return helloWorld;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             string response;
             Console.WriteLine("What is your name?");
@@ -40,6 +40,8 @@
             OperatingSystem thisOs = Environment.OSVersion;
             Console.WriteLine(thisOs.Platform);
             Console.WriteLine(thisOs.VersionString);
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

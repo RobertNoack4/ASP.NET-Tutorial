@@ -36,7 +36,7 @@ namespace Basic_Console_App.SubPrograms.Files
             return readWriteFiles;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Reading and Writing data from and to files
@@ -66,6 +66,8 @@ namespace Basic_Console_App.SubPrograms.Files
             content = File.ReadAllText(filename);
             File.Delete(filename);
             Console.WriteLine(content);
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

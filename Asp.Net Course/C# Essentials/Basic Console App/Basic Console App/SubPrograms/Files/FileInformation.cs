@@ -36,7 +36,7 @@ namespace Basic_Console_App.SubPrograms.Files
             return fileInfo;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Working with file information
@@ -77,6 +77,8 @@ namespace Basic_Console_App.SubPrograms.Files
             DateTime dt = new DateTime(2020, 7, 1);
             File.SetCreationTime(filename, dt);
             Console.WriteLine(File.GetCreationTime(filename));
+
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

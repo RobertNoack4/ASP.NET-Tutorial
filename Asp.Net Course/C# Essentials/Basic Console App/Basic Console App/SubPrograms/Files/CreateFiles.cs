@@ -36,7 +36,7 @@ namespace Basic_Console_App.SubPrograms.Files
             return createFiles;
         }
 
-        public void Start()
+        public void Start(int Mode)
         {
             // LinkedIn Learning Course .NET Programming with C# by Joe Marini
             // Creating and Deleting Files
@@ -65,6 +65,7 @@ namespace Basic_Console_App.SubPrograms.Files
                 }
             }
             Console.WriteLine(File.Exists(filename));
+            MainProgram.MainProgram.ReturnToMenue(Mode);
         }
     }
 }

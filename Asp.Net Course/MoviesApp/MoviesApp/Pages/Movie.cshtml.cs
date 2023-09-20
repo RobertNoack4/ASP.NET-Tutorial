@@ -9,9 +9,9 @@ namespace MoviesApp.Pages
     public class MovieModel : PageModel
     {
         public Movie? Movie { get; set; }
-        private MovieService _movieService;
+        private IMoviesService _movieService;
 
-        public MovieModel(MovieService movieService)
+        public MovieModel(IMoviesService movieService)
         {
             _movieService = movieService;
         }

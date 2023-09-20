@@ -11,9 +11,9 @@ namespace MoviesApp.Pages
         [BindProperty]
         public Movie Movie { get; set; }
 
-        private MovieService _movieService;
+        private IMoviesService _movieService;
 
-        public AddMovieModel(MovieService movieService)
+        public AddMovieModel(IMoviesService movieService)
         {
             _movieService = movieService;
         }
@@ -25,8 +25,6 @@ namespace MoviesApp.Pages
 
         public IActionResult OnPost()
         {
-            string value = $"{Movie.Title} - {Movie.Rate} - {Movie.Description}";
-
             if(!ModelState.IsValid)
             {
                 return Page();

@@ -10,9 +10,9 @@ namespace MoviesApp.Pages
     {
         public List<Movie> Movies { get; set; }
         
-        private MovieService _movieService;
+        private IMoviesService _movieService;
 
-        public MoviesModel(MovieService movieService)
+        public MoviesModel(IMoviesService movieService)
         {
             _movieService = movieService;
         }

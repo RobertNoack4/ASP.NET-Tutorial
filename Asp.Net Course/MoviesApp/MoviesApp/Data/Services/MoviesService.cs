@@ -2,15 +2,13 @@
 
 namespace MoviesApp.Data.Services
 {
-    public class MovieService : IMoviesService
+    public class MoviesService : IMoviesService
     {
         private readonly ApplicationDbContext _context;
 
-        public MovieService(ApplicationDbContext context)
+        public MoviesService(ApplicationDbContext context)
         {
-
             _context = context;
-
         }
 
         public void Add(Movie movie)

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MoviesApp.Data;
 using MoviesApp.Data.Models;
+using MoviesApp.Data.Services;
 
 namespace MoviesApp.Pages
 {
@@ -9,16 +10,16 @@ namespace MoviesApp.Pages
     {
         public List<Movie> Movies { get; set; }
         
-        private ApplicationDbContext _context;
+        private MovieService _movieService;
 
-        public MoviesModel(ApplicationDbContext context)
+        public MoviesModel(MovieService movieService)
         {
-            _context = context;
+            _movieService = movieService;
         }
 
         public void OnGet()
         {
-            Movies = _context.Movies.ToList();
+            Movies = _movieService.GetAll();
         }
     }
 }

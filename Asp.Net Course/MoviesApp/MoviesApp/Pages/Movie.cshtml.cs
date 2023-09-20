@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MoviesApp.Data;
 using MoviesApp.Data.Models;
 using MoviesApp.Data.Services;
 

@@ -11,12 +11,6 @@ namespace MoviesApp.Pages
 
         public void OnGet()
         {
-            Movie = new Movie
-            {
-                Title = string.Empty,
-                Description = string.Empty,
-                Rate = 0
-            };
         }
 
         public IActionResult OnPost()

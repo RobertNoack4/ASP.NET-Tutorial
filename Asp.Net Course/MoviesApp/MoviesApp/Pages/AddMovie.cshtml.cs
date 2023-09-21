@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MoviesApp.Data.Models;
@@ -5,6 +6,8 @@ using MoviesApp.Data.Services;
 
 namespace MoviesApp.Pages
 {
+    //[Authorize(Roles = "Admin, Manager")]
+    [Authorize(Policy = "GraduatedOnly")]
     public class AddMovieModel : PageModel
     {
         [BindProperty]
